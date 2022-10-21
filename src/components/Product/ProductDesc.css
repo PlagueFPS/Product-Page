@@ -1,0 +1,140 @@
+.productDesc-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 450px;
+}
+.companyName {
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-orange);
+}
+.productTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--very-dark-blue);
+}
+.productDesc {
+  font-size: 1rem;
+  color: var(--dark-blue);
+  line-height: 1.5rem;
+}
+.productPrice-Container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.productPrice {
+  color: var(--very-dark-blue);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.productPriceDiscount {
+  background-color: var(--light-orange);
+  padding: 0.25rem .5rem;
+  color: var(--primary-orange);
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+.productOldPrice {
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  text-decoration: line-through;
+  color: var(--gray-blue);
+}
+.productAmountToCart-Container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.productAmount-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.decrementButton {
+  background-color: var(--light-blue);
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  border: none;
+  padding: 1rem;
+  font-weight: bold;
+  color: var(--primary-orange);
+}
+.productAmount {
+  background-color: var(--light-blue);
+  padding: 1rem;
+  max-height: 48px;
+  color: var(--very-dark-blue);
+}
+.incrementButton {
+  background-color: var(--light-blue);
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  padding: 1rem;
+  border: none;
+  font-weight: bold;
+  color: var(--primary-orange);
+}
+.addToCartButton {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  background-color: var(--primary-orange);
+  padding: 1rem 2.75rem;
+  border-radius: var(--radius);
+  border: none;
+  color: var(--light-blue);
+}
+.decrementButton:hover,
+.incrementButton:hover,
+.addToCartButton:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+  transition: all ease-in-out .3s;
+}
+.addToCart {
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 500px) {
+  .companyName,
+  .productTitle,
+  .productDesc {
+    padding: 0 .5rem;
+  }
+  .productOldPrice {
+    position: static;
+    margin-left: auto;
+    padding: 0 .5rem;
+  }
+  .productAmountToCart-Container {
+    flex-direction: column;
+  }
+  .productAmount-Container {
+    width: 100%;
+  }
+  .decrementButton,
+  .productAmount,
+  .incrementButton {
+    flex-grow: 1;
+  }
+  .productAmount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .addToCartButton {
+    width: 100%;
+  }
+}
