@@ -8,7 +8,7 @@ import { CartContext } from '../contexts/CartContext'
 import { Sidebar } from './Sidebar'
 
 export const NavBar = () => {
-  const { setShowCart } = useContext(CartContext)!
+  const { setShowCart, totalAmount } = useContext(CartContext)!
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
 
   return (
@@ -28,6 +28,7 @@ export const NavBar = () => {
         <div className="cartAvatar-Container">
           <picture className="cartIconContainer" title='Cart' onClick={ () => setShowCart(true) }>
             <FontAwesomeIcon icon={ faCartShopping } />
+            <span className="cartAmount">{ totalAmount }</span>
           </picture>
           <picture className="avatarContainer">
             <img 

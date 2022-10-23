@@ -52,6 +52,7 @@ nav {
   margin-left: auto;
 }
 .cartIconContainer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +61,16 @@ nav {
   fill: var(--dark-blue);
   height: 25px;
   cursor: pointer;
+}
+.cartAmount {
+  position: absolute;
+  top: -.75rem;
+  right: -.75rem;
+  border-radius: var(--radius);
+  background-color: var(--primary-orange);
+  padding: 0 .5rem;
+  font-size: .75rem;
+  color: var(--white);
 }
 .avatarContainer {
   display: flex;
