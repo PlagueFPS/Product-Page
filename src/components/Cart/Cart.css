@@ -34,6 +34,31 @@
   align-items: center;
   gap: 1rem;
 }
+.cartEmpty {
+  color: orangered;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.subTotal {
+  text-align: right;
+  padding: 0 1rem;
+  font-weight: bold;
+}
+.checkout {
+  border: none;
+  background-color: var(--primary-orange);
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: var(--radius);
+  width: 80%;
+  margin: 0 auto;
+}
+.checkout:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+  transition: all ease-in-out .3s;
+}
 @media screen and (max-width: 600px) {
   .cartContent {
     width: 100%;

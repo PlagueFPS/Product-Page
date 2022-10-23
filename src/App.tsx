@@ -20,6 +20,7 @@ const App = () => {
   const [showCart, setShowCart] = useState<boolean>(false)
   const [cartItems, setCartItems] = useState<BuyableProduct[]>(JSON.parse(localStorage.getItem('cartItems')!) ?? [])
   const [totalAmount, setTotalAmount] = useState<number>(JSON.parse(localStorage.getItem('totalAmount')!) ?? 0)
+  const [totalPrice, setTotalPrice] = useState<number>(0)
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
@@ -39,6 +40,11 @@ const App = () => {
           currentItem.amount = amount
 
           setTotalAmount(prevState => prevState = amount)
+          setTotalPrice(prevState => {
+            if (prevState === 0) {
+             return prevState + 1 * item.price
+            } else return prevState * item.price
+          })
         }
       }
 
@@ -54,6 +60,8 @@ const App = () => {
       addItemToCart,
       totalAmount,
       setTotalAmount,
+      totalPrice, 
+      setTotalPrice,
     }
 
   return (

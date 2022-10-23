@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const CartItem: FC<Props> = ({ cartItem }) => {
-  const { cartItems, setCartItems, setTotalAmount } = useContext(CartContext)!
+  const { cartItems, setCartItems, setTotalAmount, setTotalPrice } = useContext(CartContext)!
 
   const [itemAmount, setItemAmount] = useState<number>(cartItem.amount ?? 1)
 
@@ -25,6 +25,7 @@ export const CartItem: FC<Props> = ({ cartItem }) => {
   const handleIncrement = () => {
     setItemAmount(prevState => prevState + 1)
     setTotalAmount(prevState => prevState + 1)
+    setTotalPrice(prevState => prevState + cartItem.price)
   }
 
   const handleDecrement = () => {
@@ -39,6 +40,11 @@ export const CartItem: FC<Props> = ({ cartItem }) => {
       
       return prevState - 1
     })
+    setTotalPrice(prevState => {
+      if (prevState <= 0) return 0
+
+      return prevState - cartItem.price
+    })
   }
 
   return (
@@ -52,6 +58,7 @@ export const CartItem: FC<Props> = ({ cartItem }) => {
       </picture>
       <div className="cartItemNameContainer">
         <span className="cartItemName">{ cartItem.name }</span>
+        <span className="cartItemPrice">${ cartItem.price }.00 x { itemAmount }</span>
       </div>
       <div className="cartItemAmountContainer">
         <button className='cartItemDecrementButton' onClick={ handleDecrement }>

@@ -5,7 +5,7 @@ import { CartItem } from './CartItem'
 import { AiOutlineLeft } from 'react-icons/ai'
 
 export const Cart = () => {
-  const { cartItems, setShowCart, totalAmount } = useContext(CartContext)!
+  const { cartItems, setShowCart, totalAmount, totalPrice } = useContext(CartContext)!
 
   return (
     <div className='cartContainer'>
@@ -16,8 +16,11 @@ export const Cart = () => {
           <span className="cartTotalItems">({ totalAmount } items)</span>
         </button>
         <ul className="cartItemList">
+          { !cartItems.length && <div className='cartEmpty'>Your cart is empty</div> }
           { cartItems.map(item => <CartItem key={ item._id } cartItem={ item } />) }
         </ul>
+        <span className='subTotal'>Sub Total: ${ totalPrice }.00</span>
+        <button className='checkout'>Checkout</button>
       </div>
     </div>
   )

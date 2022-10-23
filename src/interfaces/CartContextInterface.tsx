@@ -10,4 +10,6 @@ export interface CartContextInterface {
   addItemToCart: (item: BuyableProduct, amount?: number) => void,
   totalAmount: number,
   setTotalAmount: React.Dispatch<React.SetStateAction<number>>,
+  totalPrice: number,
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>,
 }

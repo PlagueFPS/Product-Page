@@ -17,12 +17,18 @@
 }
 .cartItemNameContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: .25rem;
   align-items: center;
 }
 .cartItemName {
   color: black;
   font-size: 1.2rem;
+}
+.cartItemPrice {
+  align-self: flex-start;
+  font-weight: bold;
 }
 .cartItemAmountContainer {
   display: flex;
