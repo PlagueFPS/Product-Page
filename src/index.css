@@ -29,3 +29,6 @@ a {
 a:visited {
   color: transparent;
 }
+ul {
+  list-style: none;
+}
