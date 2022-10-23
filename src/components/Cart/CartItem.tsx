@@ -18,8 +18,10 @@ export const CartItem: FC<Props> = ({ cartItem }) => {
 
   const handleRemoveItem = (cartItem: BuyableProduct) => {
     const newItems = cartItems.filter(i => i._id !== cartItem._id)
+    
     setCartItems(newItems)
     setTotalAmount(0)
+    setTotalPrice(prevState => prevState - cartItem.price)
   }
 
   const handleIncrement = () => {
@@ -41,7 +43,7 @@ export const CartItem: FC<Props> = ({ cartItem }) => {
       return prevState - 1
     })
     setTotalPrice(prevState => {
-      if (prevState <= 0) return 0
+      if (prevState <= cartItem.price) return cartItem.price
 
       return prevState - cartItem.price
     })
